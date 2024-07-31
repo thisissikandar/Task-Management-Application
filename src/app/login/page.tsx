@@ -70,7 +70,7 @@ export default function SignupPage() {
           {buttonDisabled ? "No Login" : "Login"}
         </button>
         <span className="mt-4">
-          Don't have an Account? Create a{" "}
+          Dont have an Account? Create a{" "}
           <Link className="text-blue-500" href="/signup">
             new account{" "}
           </Link>
