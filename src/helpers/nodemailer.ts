@@ -20,21 +20,21 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       });
     }
     const transport = nodemailer.createTransport({
-      host: "sandbox.smtp.mailtrap.io",
-      port: 2525,
+      host: "live.smtp.mailtrap.io",
+      port: 587,
       auth: {
-        user: "57c25b40adb092",
-        pass: "3777f5ca1ed44e",
+        user: "api",
+        pass: "44c0b559d198fd29fa9fba7cb6417ed4",
       },
     });
     const mailOptions = {
-      from: "sikandar@gmail.com", // sender address
-      to: email, // list of receivers
+      from: "sikandarc989@gmail.com",
+      to: email,
       subject:
         emailType === "VERIFY" ? "Verify your email" : "Reset your password",
       html: `<p>Click <a href="${
         process.env.DOMAIN
-      }/api/users/verifyemail?token=${hashedToken}">here</a> to ${
+      }/verifyemail?token=${hashedToken}">here</a> to ${
         emailType === "VERIFY" ? "verify your email" : "reset your password"
       }
       or copy and paste the link below in your browser. <br> ${
