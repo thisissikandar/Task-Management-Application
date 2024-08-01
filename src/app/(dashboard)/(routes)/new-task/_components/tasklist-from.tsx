@@ -21,14 +21,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TaskList } from "./tasklist";
 
+type TaskStatus = "To-Do" | "In Progress" | "Under Review" | "Completed";
+type TaskPriority = "Low" | "Medium" | "Urgent";
+
 interface Task {
   id: string;
   title: string;
-  description?: string;
-  status: "To-Do" | "In Progress" | "Under Review" | "Completed";
-  priority?: "Low" | "Medium" | "Urgent";
-  deadline?: Date;
+  description: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  deadline: Date;
 }
+
 
 interface TaskFormProps {
   initialData: { tasks: Task[] };
@@ -39,7 +43,7 @@ const formSchema = z.object({
   title: z.string().min(1),
 });
 
-const TaskForm = ({ initialData, boardId }: TaskFormProps) => {
+const TaskForm = ({ initialData, boardId }: any) => {
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const router = useRouter();

@@ -1,50 +1,49 @@
 import TaskForm from "./_components/tasklist-from";
 
 const TaskPage = async ({ params }: { params: { courseId: string } }) => {
+  type TaskStatus = "To-Do" | "In Progress" | "Under Review" | "Completed";
+type TaskPriority = "Low" | "Medium" | "Urgent";
+
+
   const dummyData = {
     tasks: [
       {
         id: "1",
         title: "Implement User Authentication",
-        description:
-          "Develop and integrate user authentication using email and password.",
-        status: "To-Do",
+        description: "Develop and integrate user authentication using email and password.",
+        status: "To-Do" as TaskStatus,
         priority: "Urgent",
         deadline: new Date("2024-08-15"),
       },
       {
         id: "2",
         title: "Design Home Page UI",
-        description:
-          "Develop and integrate user authentication using email and password.",
-        status: "In Progress",
+        description: "Develop and integrate user authentication using email and password.",
+        status: "In Progress" as TaskStatus,
         priority: "Medium",
         deadline: new Date("2024-08-15"),
       },
       {
         id: "3",
         title: "Integrate Cloud Storage",
-        description:
-          "Enable cloud storage for note backup and synchronization.",
-        status: "Under Review",
+        description: "Enable cloud storage for note backup and synchronization.",
+        status: "Under Review" as TaskStatus,
         priority: "Urgent",
         deadline: new Date("2024-08-20"),
       },
       {
         id: "4",
         title: "Test Cross-browser Compatibility",
-        description:
-          "Ensure the app works seamlessly across different web browsers.",
-        status: "Completed",
+        description: "Ensure the app works seamlessly across different web browsers.",
+        status: "Completed" as TaskStatus,
         priority: "Medium",
         deadline: new Date("2024-07-30"),
       },
       {
         id: "5",
         title: "Conduct User Feedback Survey",
-        description:
-          "Collect and analyze user feedback to improve app features.",
-        status: "In Progress",
+        description: "Collect and analyze user feedback to improve app features.",
+        status: "In Progress" as TaskStatus,
         priority: "Low",
         deadline: new Date("2024-08-05"),
       },
